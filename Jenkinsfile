@@ -7,11 +7,11 @@ node {
     git url: 'https://github.com/choiryaldisp/sample-go-jenkins.git'
 
     stage 'preTest'
-    sh "${root} go version"
+    sh "${root} version"
 
     stage 'Test'
-    sh "${root} go test ./... -cover"
+    sh "${root} test ./... -cover"
 
     stage 'Build'
-    sh "${root} go build ./..."
+    sh "${root} build ./..."
 }
