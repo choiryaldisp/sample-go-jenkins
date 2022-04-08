@@ -8,32 +8,23 @@ pipeline{
     }
 
     stages{
-        stage('Go version'){
-            steps{
-                sh "${root} version"
-            }
-        }
-
         stage('Git clone'){
             steps{
                 git branch:"${branch}", url:"${scmUlr}"
             }
         }
 
-        stage('Go Test'){
+        stage('Go Build Docker'){
             steps{
-               sh "${root} test ./... -cover"
+               sh "docker build -it sample-go-jenkins ."
             }
         }
 
-        stage('Go Build'){
+        stage('Go Deploy'){
             steps{
-               sh "${root} build ./..."
+               echo "Deploy success"
             }
         }
-
-
-
     }
 }
 
