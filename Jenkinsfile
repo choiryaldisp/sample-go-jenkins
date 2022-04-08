@@ -16,7 +16,7 @@ pipeline{
 
         stage('Go Build Docker'){
             steps{
-               sh "docker build -it sample-go-jenkins ."
+               sh "docker build -t sample-go-jenkins ."
             }
         }
 
